@@ -25,44 +25,44 @@ namespace FruitStore.Controllers
             return View(fruits);
         }
 
+        //Create
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-        //Create
         [HttpPost]
-        public IActionResult Create(FruitCreateViewModel fruit)
+        public IActionResult Create(FruitCreateViewModel fruitCreate)
         {
-            _fruitRepo.CreateFruit(fruit);
+            _fruitRepo.CreateFruit(fruitCreate);
             return RedirectToAction("Index");
         }
-        //Update
+        //Edit
         [HttpGet]
         public IActionResult Edit(int Id)
         {
-            var fruit = _fruitRepo.GetFruitById(Id);
-            return View(fruit);
+            var fruits = _fruitRepo.GetFruitById(Id);
+            return View(fruits);
         }
         [HttpPost]
-        public IActionResult Edit(FruitEditViewModel fruitEditViewModel)
+        public IActionResult Edit(FruitEditViewModel fruitEdit)
         {
-            _fruitRepo.UpdateFruit(fruitEditViewModel);
+            _fruitRepo.EditFruit(fruitEdit);
             return RedirectToAction("Index");
         }
         //Details
         [HttpGet]
         public IActionResult Details(int Id)
         {
-            var fruit = _fruitRepo.GetFruitById(Id);
-            return View(fruit);
+            var fruits = _fruitRepo.GetFruitById(Id);
+            return View(fruits);
         }
         //Delete
         [HttpGet]
         public IActionResult DeleteFruit(int Id)
         {
-            var fruit = _fruitRepo.GetFruitById(Id);
-            return View(fruit);
+            var fruits = _fruitRepo.GetFruitById(Id);
+            return View(fruits);
         }
         [HttpPost]
         public IActionResult Delete(int FruitId)

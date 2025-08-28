@@ -18,6 +18,7 @@ namespace FruitStore.Repositories.Implementation
             var fruits = database.Fruits.ToList();
             return fruits;
         }
+        //Create
         public void CreateFruit(FruitCreateViewModel fruit)
         {
             Fruit NewFruit = new Fruit();
@@ -26,7 +27,8 @@ namespace FruitStore.Repositories.Implementation
             database.Fruits.Add(NewFruit);
             database.SaveChanges();
         }
-        public void UpdateFruit(FruitEditViewModel editfruit)
+        //Edit
+        public void EditFruit(FruitEditViewModel editfruit)
         {
             var fruit = database.Fruits.FirstOrDefault(f => f.FruitId == editfruit.FruitId);
             if (fruit != null)
@@ -37,11 +39,13 @@ namespace FruitStore.Repositories.Implementation
                 database.SaveChanges();
             }
         }
+        //Details
         public Fruit GetFruitById(int id)
         {
             var fruit = database.Fruits.FirstOrDefault(f => f.FruitId == id);
             return fruit;
         }
+        //Delete
         public Fruit DeleteFruitById(int fruitId)
         {
             var fruit = database.Fruits.FirstOrDefault(f => f.FruitId == fruitId);
