@@ -8,6 +8,6 @@ namespace FruitStore.Context
         {
         }
         public DbSet<Models.Fruit> Fruits { get; set; }
-        public DbSet<Models.Order> Orders { get; set; }
+        //public DbSet<Models.Order> Orders { get; set; }
     }
 }

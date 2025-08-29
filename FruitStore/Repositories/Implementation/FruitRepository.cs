@@ -6,7 +6,7 @@ using NuGet.Protocol.Plugins;
 
 namespace FruitStore.Repositories.Implementation
 {
-    public class FruitRepository : IFruitRepository
+    public class FruitRepository : BaseRepository<Fruit>, IFruitRepository
     {
         private readonly MainDBContext database;
         public FruitRepository(MainDBContext mainDBContext)
@@ -30,7 +30,7 @@ namespace FruitStore.Repositories.Implementation
         //Edit
         public void EditFruit(FruitEditViewModel editfruit)
         {
-            var fruit = database.Fruits.FirstOrDefault(f => f.FruitId == editfruit.FruitId);
+            var fruit = GetById(editfruit.FruitId);
             if (fruit != null)
             {
                 fruit.Name = editfruit.Name;
@@ -40,20 +40,26 @@ namespace FruitStore.Repositories.Implementation
             }
         }
         //Details
-        public Fruit GetFruitById(int id)
+        public virtual Fruit GetFruitById(int id)
         {
-            var fruit = database.Fruits.FirstOrDefault(f => f.FruitId == id);
+            var fruit = GetById(id);
             return fruit;
         }
         //Delete
         public Fruit DeleteFruitById(int fruitId)
         {
-            var fruit = database.Fruits.FirstOrDefault(f => f.FruitId == fruitId);
+            var fruit = GetById(fruitId);
             if (fruit != null)
             {
                 database.Fruits.Remove(fruit);
                 database.SaveChanges();
             }
+            return fruit;
+        }
+
+        public override Fruit GetById(int id)
+        {
+            var fruit = database.Fruits.FirstOrDefault(f => f.FruitId == id);
             return fruit;
         }
     }
