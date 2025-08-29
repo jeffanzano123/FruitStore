@@ -24,19 +24,19 @@ namespace FruitStore.Migrations
                     table.PrimaryKey("PK_Fruits", x => x.FruitId);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    OrderId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    FruitId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.OrderId);
-                });
+            //migrationBuilder.CreateTable(
+            //    name: "Orders",
+            //    columns: table => new
+            //    {
+            //        OrderId = table.Column<int>(type: "int", nullable: false)
+            //            .Annotation("SqlServer:Identity", "1, 1"),
+            //        Quantity = table.Column<int>(type: "int", nullable: false),
+            //        FruitId = table.Column<int>(type: "int", nullable: false)
+            //    },
+            //    constraints: table =>
+            //    {
+            //        table.PrimaryKey("PK_Orders", x => x.OrderId);
+            //    });
         }
 
         /// <inheritdoc />

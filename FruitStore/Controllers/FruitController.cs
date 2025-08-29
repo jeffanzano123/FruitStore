@@ -11,10 +11,8 @@ namespace FruitStore.Controllers
     {
         private readonly IFruitRepository _fruitRepo;
 
-        private readonly MainDBContext database;
-        public FruitController(MainDBContext _database, IFruitRepository fruitRepo) 
+        public FruitController(IFruitRepository fruitRepo) 
         {
-            database = _database;
             _fruitRepo = fruitRepo;
         }
         //List of fruits

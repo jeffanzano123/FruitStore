@@ -5,7 +5,7 @@ namespace FruitStore.Repositories.Interface
 {
     public interface IFruitRepository
     {
-        IEnumerable<Models.Fruit> GetAllFruits();
+        IEnumerable<Fruit> GetAllFruits();
         void CreateFruit(FruitCreateViewModel fruit);
         void EditFruit(FruitEditViewModel editfruit);
         Fruit GetFruitById(int id);
